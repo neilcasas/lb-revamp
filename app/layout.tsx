@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Teachers, Montserrat } from "next/font/google";
+import { Navbar } from "@/components/Navbar";
+import { Footer } from "@/components/Footer";
 import "./globals.css";
 
 const teachers = Teachers({
@@ -25,9 +27,11 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body
-        className={`${teachers.variable} ${montserrat.variable} antialiased`}
+        className={`${teachers.variable} ${montserrat.variable} antialiased flex flex-col min-h-screen`}
       >
-        {children}
+        <Navbar />
+        <main className="grow">{children}</main>
+        <Footer />
       </body>
     </html>
   );
