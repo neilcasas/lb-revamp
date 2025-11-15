@@ -1,5 +1,3 @@
-"use client";
-
 import StaggeredMenu from "./StaggeredMenu";
 
 const menuItems = [

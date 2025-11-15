@@ -1,3 +1,5 @@
+"use client";
+
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useCallback, useLayoutEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
@@ -405,9 +407,9 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
 
   return (
     <div
-      className={`sm-scope z-40 pointer-events-none ${
+      className={`sm-scope z-50 ${
         isFixed
-          ? "fixed top-0 left-0 w-screen h-screen overflow-hidden"
+          ? "fixed top-0 left-0 w-screen h-screen overflow-hidden pointer-events-none"
           : "w-full h-full"
       }`}
     >
