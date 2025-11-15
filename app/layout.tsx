@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
-import { Teachers, Montserrat } from "next/font/google";
+import { Instrument_Serif, Montserrat } from "next/font/google";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import "./globals.css";
 
-const teachers = Teachers({
-  variable: "--font-teacher",
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-instrument",
   subsets: ["latin"],
+  weight: "400",
+  style: ["normal", "italic"],
+  display: "swap",
 });
 
 const montserrat = Montserrat({
@@ -27,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body
-        className={`${teachers.variable} ${montserrat.variable} antialiased flex flex-col min-h-screen`}
+        className={`${instrumentSerif.variable} ${montserrat.variable} antialiased flex flex-col min-h-screen`}
       >
         <Navbar />
         <main className="grow">{children}</main>

@@ -7,7 +7,7 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-montserrat);
-  --font-heading: var(--font-teacher);
+  --font-heading: var(--font-instrument);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -120,13 +120,17 @@
     @apply bg-background text-foreground;
     font-family: var(--font-montserrat), sans-serif;
   }
-  h1,
+  h1 {
+    font-family: var(--font-instrument), serif !important;
+    font-weight: 400 !important;
+  }
   h2,
   h3,
   h4,
   h5,
   h6 {
-    font-family: var(--font-teacher), serif;
+    font-family: var(--font-instrument), serif !important;
+    font-weight: 400 !important;
   }
 }
 
