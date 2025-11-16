@@ -55,7 +55,7 @@ export function Hero() {
             <div className="relative">
               <Input
                 type="text"
-                placeholder="Ask Louvre Blanc AI"
+                placeholder="Ask us anything"
                 className="h-14 px-6 text-base bg-white/95 backdrop-blur-sm border-2 border-white/20 focus:border-[#d4af37] focus:ring-2 focus:ring-[#d4af37]/20 transition-all"
                 readOnly
               />

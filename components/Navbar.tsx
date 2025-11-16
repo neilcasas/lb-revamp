@@ -47,7 +47,7 @@ export function Navbar() {
       items={menuItems}
       socialItems={socialItems}
       displaySocials={true}
-      displayItemNumbering={true}
+      displayItemNumbering={false}
       logoUrl="/lb_long_icon.png"
       menuButtonColor="#ffffff"
       openMenuButtonColor="#000000"
