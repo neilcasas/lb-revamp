@@ -18,16 +18,18 @@ export function ServicesCard({
 }: ServicesCardProps) {
   return (
     <SpotlightCard
-      className="h-full min-h-[400px] flex flex-col justify-between"
+      className="h-full min-h-[400px] flex flex-col"
       spotlightColor="rgba(212, 175, 55, 0.15)"
     >
-      {/* Icon */}
-      <div className="flex items-start justify-center mb-8">{icon}</div>
+      {/* Icon - Fixed height */}
+      <div className="flex items-center justify-center h-32 mb-8">{icon}</div>
 
-      {/* Content */}
-      <div className="mt-auto space-y-4">
+      {/* Content - Fixed structure */}
+      <div className="flex flex-col space-y-4">
         <span className="text-sm text-muted-foreground">{number}</span>
-        <h3 className="text-2xl font-semibold text-foreground">{title}</h3>
+        <h3 className="text-2xl font-semibold text-foreground min-h-14">
+          {title}
+        </h3>
         <p className="text-sm text-muted-foreground leading-relaxed">
           {description}
         </p>
