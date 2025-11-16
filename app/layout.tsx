@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Instrument_Serif, Montserrat } from "next/font/google";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { SmoothScrollProvider } from "@/components/SmoothScrollProvider";
 import "./globals.css";
 
 const instrumentSerif = Instrument_Serif({
@@ -32,9 +33,11 @@ export default function RootLayout({
       <body
         className={`${instrumentSerif.variable} ${montserrat.variable} antialiased flex flex-col min-h-screen`}
       >
-        <Navbar />
-        <main className="grow">{children}</main>
-        <Footer />
+        <SmoothScrollProvider>
+          <Navbar />
+          <main className="grow">{children}</main>
+          <Footer />
+        </SmoothScrollProvider>
       </body>
     </html>
   );
