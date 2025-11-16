@@ -138,7 +138,7 @@ export function TestimonialsSection() {
             We&apos;ve Partnered With
           </h2>
         </div>
-        <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl w-full mx-auto">
+        <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {testimonials.map((testimonial, index) => (
             <TestimonialCard
               key={index}
