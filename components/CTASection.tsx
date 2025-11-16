@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { motion } from "motion/react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
@@ -31,9 +32,15 @@ export function CTASection() {
   return (
     <section className="w-full bg-background py-12">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 min-h-[600px] lg:min-h-[700px]">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Left side - Image with text overlay */}
-          <div className="relative overflow-hidden rounded-3xl border border-neutral-800">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="relative overflow-hidden rounded-3xl border border-neutral-800 min-h-[500px] lg:min-h-[700px]"
+          >
             <Image
               src="/pillars.png"
               alt="Classical architecture pillars"
@@ -52,10 +59,16 @@ export function CTASection() {
                 <span className="italic">Your Next Big Idea</span>
               </h2>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right side - Form */}
-          <div className="bg-black rounded-3xl border border-neutral-800 p-8 md:p-12 lg:p-16 flex flex-col justify-center">
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+            className="bg-black rounded-3xl border border-neutral-800 p-8 md:p-12 lg:p-16 flex flex-col justify-center min-h-[500px] lg:min-h-[700px]"
+          >
             <h3 className="text-2xl md:text-3xl text-neutral-300 mb-8">
               Fill This Form Below
             </h3>
@@ -129,7 +142,7 @@ export function CTASection() {
                 Send Message
               </Button>
             </form>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
