@@ -3,6 +3,7 @@ import { CompaniesScroll } from "@/components/CompaniesScroll";
 import { CTASection } from "@/components/CTASection";
 import { Hero } from "@/components/Hero";
 import { ServicesSection } from "@/components/ServicesSection";
+import { TestimonialsSection } from "@/components/TestimonialsSection";
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       <CompaniesScroll />
       <AboutSection />
       <ServicesSection />
+      <TestimonialsSection />
       <CTASection />
     </div>
   );
