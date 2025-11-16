@@ -1,6 +1,7 @@
 import { AboutSection } from "@/components/AboutSection";
 import { CompaniesScroll } from "@/components/CompaniesScroll";
 import { Hero } from "@/components/Hero";
+import { ServicesSection } from "@/components/ServicesSection";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
       <Hero />
       <CompaniesScroll />
       <AboutSection />
+      <ServicesSection />
     </div>
   );
 }

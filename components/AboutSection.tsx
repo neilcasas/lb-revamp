@@ -10,14 +10,14 @@ export function AboutSection() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   const statistics = [
-    { label: "Years Experience", value: 12, suffix: "+" },
-    { label: "Completed Projects", value: 250, suffix: "+" },
-    { label: "Award Winning", value: 110, suffix: "+" },
-    { label: "Satisfied Clients", value: 12, suffix: "+" },
+    { label: "Months Since Founded", value: 36, suffix: "+" },
+    { label: "Global Clients", value: 21, suffix: "" },
+    { label: "Direct Engagements", value: 190, suffix: "k" },
+    { label: "In Awarded Projects", value: 1.7, suffix: "m" },
   ];
 
   const text =
-    "Founded on the principles of creativity, collaboration, and excellence, AIXOR is a diverse team of industry experts dedicated to delivering outstanding results...";
+    "The Louvreblanc Consulting Group is a discreet, high-trust advisory firm for a select clientele. Our exclusive model—serving only 3-5 clients at a time—ensures unparalleled focus. We are a strategic mechanism for leaders, guaranteeing absolute confidentiality, authenticity, and full intellectual property ownership.";
 
   const words = text.split(" ");
 
