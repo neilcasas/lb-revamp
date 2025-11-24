@@ -67,11 +67,11 @@ export function AboutSection() {
                 }}
               >
                 <SpotlightCard
-                  className="h-full min-h-[200px] flex flex-col justify-end"
+                  className="h-full min-h-[200px] flex flex-col justify-center"
                   spotlightColor="rgba(212, 175, 55, 0.15)"
                 >
                   <div>
-                    <h3 className="text-sm text-foreground mb-4">
+                    <h3 className=" text-foreground mb-4 text-xl">
                       {stat.label}
                     </h3>
                     <div className="text-5xl md:text-6xl font-bold text-foreground">
