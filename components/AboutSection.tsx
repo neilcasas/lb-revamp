@@ -17,7 +17,7 @@ export function AboutSection() {
   ];
 
   const text =
-    "The Louvreblanc Consulting Group is a discreet, high-trust advisory firm for a select clientele. Our exclusive model—serving only 3-5 clients at a time—ensures unparalleled focus. We are a strategic mechanism for leaders, guaranteeing absolute confidentiality, authenticity, and full intellectual property ownership.";
+    "The Louvreblanc Consulting Group positions itself as a discreet, high-trust strategic partner—especially for organizations or individuals needing sensitive materials handled with care. Their service blend spans content creation, design, communications, governance, and advisory support. They stand out with their privacy-first approach, quality assurance, and tailored client relationships.";
 
   const words = text.split(" ");
 

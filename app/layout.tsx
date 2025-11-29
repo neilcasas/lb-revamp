@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Instrument_Serif, Montserrat } from "next/font/google";
+import { Teachers, Montserrat } from "next/font/google";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { SmoothScrollProvider } from "@/components/SmoothScrollProvider";
 import "./globals.css";
 
-const instrumentSerif = Instrument_Serif({
+const instrumentSerif = Teachers({
   variable: "--font-instrument",
   subsets: ["latin"],
   weight: "400",
