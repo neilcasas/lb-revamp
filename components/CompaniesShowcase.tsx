@@ -26,7 +26,10 @@ export function CompaniesShowcase({
         {/* Logo Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto items-center">
           {logos.map((logo, index) => (
-            <div key={index} className="flex items-center justify-center">
+            <div
+              key={index}
+              className="flex items-center justify-center"
+            >
               <Image
                 src={logo}
                 alt={`Company logo ${index + 1}`}
