@@ -22,7 +22,7 @@ export function AboutSection() {
   const words = text.split(" ");
 
   return (
-    <section className="py-24 bg-linear-to-b from-neutral-900 to-black">
+    <section className="py-24 bg-linear-to-b from-neutral-900 to-[#141416]">
       <div className="container mx-auto px-4">
         {/* Small "About Us" label */}
         <div className="mb-8">
@@ -68,7 +68,7 @@ export function AboutSection() {
               >
                 <SpotlightCard
                   className="h-full min-h-[200px] flex flex-col justify-center"
-                  spotlightColor="rgba(212, 175, 55, 0.15)"
+                  spotlightColor="rgba(255, 255, 255, 0.25)"
                 >
                   <div>
                     <h3 className=" text-foreground mb-4 text-xl">

@@ -40,20 +40,20 @@ export function Navbar() {
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? "bg-black/80 backdrop-blur-md border-b border-white/10"
+            ? "bg-[#141416]/95 backdrop-blur-lg border-b border-white/20"
             : "bg-transparent"
         }`}
       >
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-20">
+        <div className="container mx-auto px-4 py-2 sm:py-3">
+          <div className="flex items-center justify-between h-16 lg:h-20">
             {/* Logo */}
             <Link href="/" className="flex items-center">
               <Image
-                src="/lb_long_icon.png"
+                src="/lb_long.png"
                 alt="The Louvreblanc"
                 width={200}
                 height={40}
-                className="h-8 w-auto"
+                className="h-10 w-auto sm:h-12 lg:h-14"
                 priority
               />
             </Link>
@@ -64,8 +64,10 @@ export function Navbar() {
                 <Link
                   key={item.link}
                   href={item.link}
-                  className={`text-sm font-medium transition-colors hover:text-[#d4af37] ${
-                    pathname === item.link ? "text-[#d4af37]" : "text-white"
+                  className={`text-sm font-medium transition-colors border-b-2 pb-1 ${
+                    pathname === item.link
+                      ? "text-white border-white"
+                      : "text-white/70 border-transparent hover:text-white"
                   }`}
                 >
                   {item.label}
@@ -96,7 +98,7 @@ export function Navbar() {
         }`}
       >
         <div
-          className="absolute inset-0 bg-black/80 backdrop-blur-md"
+          className="absolute inset-0 bg-[#141416]/95 backdrop-blur-md"
           onClick={() => setMobileMenuOpen(false)}
         />
         <div className="relative h-full flex flex-col items-center justify-center gap-8">
@@ -104,8 +106,10 @@ export function Navbar() {
             <Link
               key={item.link}
               href={item.link}
-              className={`text-3xl font-normal transition-colors hover:text-[#d4af37] ${
-                pathname === item.link ? "text-[#d4af37]" : "text-white"
+              className={`text-3xl font-normal transition-colors border-b-2 pb-1 ${
+                pathname === item.link
+                  ? "text-white border-white"
+                  : "text-white/70 border-transparent hover:text-white"
               }`}
               onClick={() => setMobileMenuOpen(false)}
             >

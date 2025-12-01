@@ -67,7 +67,7 @@ export function CTASection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-            className="bg-black rounded-3xl border border-neutral-800 p-8 md:p-12 lg:p-16 flex flex-col justify-center min-h-[500px] lg:min-h-[700px]"
+            className="bg-background rounded-3xl border border-neutral-800 p-8 md:p-12 lg:p-16 flex flex-col justify-center min-h-[500px] lg:min-h-[700px]"
           >
             <h3 className="text-2xl md:text-3xl text-neutral-300 mb-8">
               Fill This Form Below

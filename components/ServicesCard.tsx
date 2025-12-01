@@ -19,7 +19,7 @@ export function ServicesCard({
   return (
     <SpotlightCard
       className="h-full min-h-[400px] flex flex-col"
-      spotlightColor="rgba(212, 175, 55, 0.15)"
+      spotlightColor="rgba(255, 255, 255, 0.25)"
     >
       {/* Icon - Fixed height */}
       <div className="flex items-center justify-center h-32 mb-8">{icon}</div>
