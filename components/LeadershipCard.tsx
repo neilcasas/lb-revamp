@@ -20,7 +20,7 @@ export function LeadershipCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.6, delay }}
-      className="w-full rounded-2xl border border-white/10 bg-linear-to-b from-[#141416] to-[#141416] p-8 md:p-10 lg:p-12"
+      className="w-full rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md p-8 md:p-10 lg:p-12"
     >
       <div className="space-y-4">
         <div>

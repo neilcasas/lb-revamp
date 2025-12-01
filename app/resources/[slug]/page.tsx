@@ -220,7 +220,7 @@ export default async function ResourcePage({ params }: PageProps) {
 
       {/* Read More Section */}
       {relatedResources.length > 0 && (
-        <section className="py-16 border-t border-border">
+        <section className="py-16">
           <div className="container mx-auto px-4">
             <h2 className="text-2xl md:text-3xl font-semibold text-foreground mb-12 text-center">
               Read More
