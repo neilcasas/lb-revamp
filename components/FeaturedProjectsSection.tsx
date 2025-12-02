@@ -37,7 +37,7 @@ export async function FeaturedProjectsSection() {
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-normal text-foreground mb-6">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground mb-6">
             Featured <span className="italic">Projects</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">

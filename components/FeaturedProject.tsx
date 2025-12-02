@@ -93,11 +93,6 @@ export function FeaturedProject({
 
         {/* Content - bottom left */}
         <div className="absolute bottom-8 left-8 right-8">
-          {subtitle && (
-            <p className="text-sm md:text-base text-white/70 mb-2">
-              {subtitle}
-            </p>
-          )}
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-normal text-white leading-tight">
             <span className="font-light">{title.split(" ")[0]}</span>{" "}
             {title.split(" ").slice(1).join(" ")}

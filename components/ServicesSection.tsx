@@ -241,7 +241,7 @@ export function ServicesSection() {
         {/* Section Header */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
           <div>
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-normal text-foreground leading-tight">
+            <h2 className="text-5xl font-semibold md:text-6xl lg:text-7xl font-normal text-foreground leading-tight">
               <span className="italic">What</span> We Do
             </h2>
           </div>

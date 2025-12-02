@@ -8,7 +8,7 @@ import "./globals.css";
 const instrumentSerif = Teachers({
   variable: "--font-instrument",
   subsets: ["latin"],
-  weight: "400",
+  weight: ["400", "500", "600", "700", "800"],
   style: ["normal", "italic"],
   display: "swap",
 });

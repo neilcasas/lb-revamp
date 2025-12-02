@@ -29,7 +29,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight"
+            className="text-5xl md:text-6xl lg:text-7xl font-semibold text-white mb-6 leading-tight"
           >
             We are a Powerhouse Behind Players & Power Brokers
           </motion.h1>
