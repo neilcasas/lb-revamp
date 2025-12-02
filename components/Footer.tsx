@@ -22,31 +22,31 @@ export function Footer() {
         <div className="flex flex-wrap justify-center gap-8 mb-8">
           <Link
             href="/"
-            className="text-foreground hover:underline transition-all duration-300 cursor-pointer"
+            className="text-foreground hover:text-cyan-400 transition-all duration-300 cursor-pointer"
           >
             Home
           </Link>
           <Link
             href="/portfolio"
-            className="text-foreground hover:underline transition-all duration-300 cursor-pointer"
+            className="text-foreground hover:text-cyan-400 transition-all duration-300 cursor-pointer"
           >
             Portfolio
           </Link>
           <Link
             href="/services"
-            className="text-foreground hover:underline transition-all duration-300 cursor-pointer"
+            className="text-foreground hover:text-cyan-400 transition-all duration-300 cursor-pointer"
           >
             Services
           </Link>
           <Link
             href="/leadership"
-            className="text-foreground hover:underline transition-all duration-300 cursor-pointer"
+            className="text-foreground hover:text-cyan-400 transition-all duration-300 cursor-pointer"
           >
             Leadership
           </Link>
           <Link
             href="/resources"
-            className="text-foreground hover:underline transition-all duration-300 cursor-pointer"
+            className="text-foreground hover:text-cyan-400 transition-all duration-300 cursor-pointer"
           >
             Resources
           </Link>
@@ -58,11 +58,11 @@ export function Footer() {
             href="https://linkedin.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-12 h-12 rounded-lg bg-muted hover:bg-[#d4af37]/20 flex items-center justify-center transition-all duration-300 cursor-pointer group"
+            className="w-12 h-12 rounded-lg bg-muted hover:bg-cyan-400/20 flex items-center justify-center transition-all duration-300 cursor-pointer group"
             aria-label="LinkedIn"
           >
             <svg
-              className="w-6 h-6 text-foreground group-hover:text-[#d4af37] transition-colors duration-300"
+              className="w-6 h-6 text-foreground group-hover:text-cyan-400 transition-colors duration-300"
               fill="currentColor"
               viewBox="0 0 24 24"
             >
@@ -73,11 +73,11 @@ export function Footer() {
             href="https://twitter.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-12 h-12 rounded-lg bg-muted hover:bg-[#d4af37]/20 flex items-center justify-center transition-all duration-300 cursor-pointer group"
+            className="w-12 h-12 rounded-lg bg-muted hover:bg-cyan-400/20 flex items-center justify-center transition-all duration-300 cursor-pointer group"
             aria-label="Twitter"
           >
             <svg
-              className="w-6 h-6 text-foreground group-hover:text-[#d4af37] transition-colors duration-300"
+              className="w-6 h-6 text-foreground group-hover:text-cyan-400 transition-colors duration-300"
               fill="currentColor"
               viewBox="0 0 24 24"
             >
@@ -88,11 +88,11 @@ export function Footer() {
             href="https://facebook.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-12 h-12 rounded-lg bg-muted hover:bg-[#d4af37]/20 flex items-center justify-center transition-all duration-300 cursor-pointer group"
+            className="w-12 h-12 rounded-lg bg-muted hover:bg-cyan-400/20 flex items-center justify-center transition-all duration-300 cursor-pointer group"
             aria-label="Facebook"
           >
             <svg
-              className="w-6 h-6 text-foreground group-hover:text-[#d4af37] transition-colors duration-300"
+              className="w-6 h-6 text-foreground group-hover:text-cyan-400 transition-colors duration-300"
               fill="currentColor"
               viewBox="0 0 24 24"
             >

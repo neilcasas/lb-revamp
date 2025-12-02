@@ -66,8 +66,8 @@ export function Navbar() {
                   href={item.link}
                   className={`text-sm font-medium transition-colors border-b-2 pb-1 ${
                     pathname === item.link
-                      ? "text-white border-white"
-                      : "text-white/70 border-transparent hover:text-white"
+                      ? "text-cyan-400 border-cyan-400"
+                      : "text-white/70 border-transparent hover:text-cyan-400"
                   }`}
                 >
                   {item.label}
@@ -108,8 +108,8 @@ export function Navbar() {
               href={item.link}
               className={`text-3xl font-normal transition-colors border-b-2 pb-1 ${
                 pathname === item.link
-                  ? "text-white border-white"
-                  : "text-white/70 border-transparent hover:text-white"
+                  ? "text-cyan-400 border-cyan-400"
+                  : "text-white/70 border-transparent hover:text-cyan-400"
               }`}
               onClick={() => setMobileMenuOpen(false)}
             >
