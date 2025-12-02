@@ -3,6 +3,7 @@ import { Teachers, Montserrat } from "next/font/google";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { SmoothScrollProvider } from "@/components/SmoothScrollProvider";
+import { Toaster } from "@/components/ui/sonner";
 import "./globals.css";
 
 const instrumentSerif = Teachers({
@@ -38,6 +39,7 @@ export default function RootLayout({
           <main className="grow">{children}</main>
           <Footer />
         </SmoothScrollProvider>
+        <Toaster richColors position="top-center" />
       </body>
     </html>
   );

@@ -73,7 +73,6 @@ Lex currently serves as the Officer for International Policy and Governance at t
               name={leader.name}
               title={leader.title}
               bio={leader.bio}
-              delay={index * 0.1}
             />
           ))}
         </div>

@@ -53,12 +53,10 @@ export const project = defineType({
       type: 'string',
       options: {
         list: [
-          {title: 'Brand Identity', value: 'Brand Identity'},
-          {title: 'Web Development', value: 'Web Development'},
-          {title: 'UI/UX Design', value: 'UI/UX Design'},
+          {title: 'Writing', value: 'Writing'},
+          {title: 'Design', value: 'Design'},
+          {title: 'Project Management', value: 'Project Management'},
           {title: 'Research', value: 'Research'},
-          {title: 'Strategy', value: 'Strategy'},
-          {title: 'Marketing', value: 'Marketing'},
         ],
       },
     }),

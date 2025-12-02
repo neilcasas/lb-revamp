@@ -5,6 +5,7 @@ import { useState, useRef, useEffect } from "react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
+import { toast } from "sonner";
 
 const countries = [
   { code: "US", name: "United States", dialCode: "+1", emoji: "🇺🇸" },
@@ -89,10 +90,18 @@ export function CTASection() {
   });
   const [isCountryDropdownOpen, setIsCountryDropdownOpen] = useState(false);
   const [countrySearch, setCountrySearch] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const selectedCountry =
     countries.find((c) => c.code === formData.countryCode) || countries[0];
+
+  // Check if step 1 required fields are filled
+  const isStep1Valid =
+    formData.firstName.trim() !== "" &&
+    formData.lastName.trim() !== "" &&
+    formData.company.trim() !== "" &&
+    formData.email.trim() !== "";
 
   const filteredCountries = countries.filter(
     (country) =>
@@ -142,9 +151,55 @@ export function CTASection() {
     "Other",
   ];
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...formData,
+          countryDialCode: selectedCountry.dialCode,
+        }),
+      });
+
+      if (response.ok) {
+        toast.success("Message sent!", {
+          description:
+            "Thank you for reaching out. We'll get back to you soon.",
+        });
+        // Reset form
+        setFormData({
+          firstName: "",
+          lastName: "",
+          company: "",
+          email: "",
+          phone: "",
+          countryCode: "US",
+          leadershipRole: "",
+          areaOfInquiry: [],
+          source: "",
+        });
+        setStep(1);
+      } else {
+        toast.error("Failed to send message", {
+          description:
+            "Something went wrong. Please try again or contact us directly.",
+        });
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast.error("Failed to send message", {
+        description:
+          "Something went wrong. Please try again or contact us directly.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
@@ -439,7 +494,8 @@ export function CTASection() {
                     <Button
                       type="button"
                       onClick={handleNext}
-                      className="bg-cyan-400 hover:bg-cyan-300 text-black font-medium px-8 py-3 rounded-lg text-base transition-colors"
+                      disabled={!isStep1Valid}
+                      className="bg-cyan-400 hover:bg-cyan-300 text-black font-medium px-8 py-3 rounded-lg text-base transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       Next
                     </Button>
@@ -538,15 +594,42 @@ export function CTASection() {
                     <Button
                       type="button"
                       onClick={handleBack}
-                      className="bg-neutral-800 hover:bg-neutral-700 text-white font-medium px-8 py-3 rounded-lg text-base transition-colors"
+                      disabled={isSubmitting}
+                      className="bg-neutral-800 hover:bg-neutral-700 text-white font-medium px-8 py-3 rounded-lg text-base transition-colors disabled:opacity-50"
                     >
                       Back
                     </Button>
                     <Button
                       type="submit"
-                      className="bg-cyan-400 hover:bg-cyan-300 text-black font-medium px-8 py-3 rounded-lg text-base transition-colors"
+                      disabled={isSubmitting}
+                      className="bg-cyan-400 hover:bg-cyan-300 text-black font-medium px-8 py-3 rounded-lg text-base transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                      Submit
+                      {isSubmitting ? (
+                        <span className="flex items-center gap-2">
+                          <svg
+                            className="animate-spin h-4 w-4"
+                            viewBox="0 0 24 24"
+                          >
+                            <circle
+                              className="opacity-25"
+                              cx="12"
+                              cy="12"
+                              r="10"
+                              stroke="currentColor"
+                              strokeWidth="4"
+                              fill="none"
+                            />
+                            <path
+                              className="opacity-75"
+                              fill="currentColor"
+                              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                            />
+                          </svg>
+                          Sending...
+                        </span>
+                      ) : (
+                        "Submit"
+                      )}
                     </Button>
                   </div>
                 </div>

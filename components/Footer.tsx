@@ -10,7 +10,7 @@ export function Footer() {
         {/* Logo */}
         <div className="flex justify-center mb-8">
           <Image
-            src="/lb_long_icon.png"
+            src="/lb_long.png"
             alt="The Louvreblanc"
             width={300}
             height={60}
