@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "motion/react";
+import { motion, useScroll, useTransform } from "motion/react";
+import { useRef } from "react";
 
 interface FeaturedProjectProps {
   title: string;
@@ -21,14 +22,26 @@ export function FeaturedProject({
   categories,
   slug,
 }: FeaturedProjectProps) {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "center center", "end start"],
+  });
+
+  // Scale from 0.85 -> 1 -> 0.85 as element enters, centers, then exits
+  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.85, 1, 0.85]);
+
   return (
     <Link href={`/portfolio/${slug}`}>
       <motion.div
+        ref={containerRef}
+        style={{ scale }}
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
-        className="group relative w-full h-screen min-h-[600px] overflow-hidden cursor-pointer"
+        className="group relative w-full h-screen min-h-[600px] overflow-hidden cursor-pointer rounded-3xl origin-center"
       >
         {/* Background Image */}
         <Image
