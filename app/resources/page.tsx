@@ -59,10 +59,8 @@ export default async function ResourcesPage() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <PageHero
-        image="/leadership.png"
         title="Resources"
         description="Access insights, guides, and tools designed to empower your decision-making. Knowledge that drives results."
-        reversed
       />
 
       <ResourceFilters resources={formattedResources} categories={categories} />

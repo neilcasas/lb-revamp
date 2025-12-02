@@ -62,7 +62,6 @@ Lex currently serves as the Officer for International Policy and Governance at t
   return (
     <div className="min-h-screen bg-background text-foreground">
       <PageHero
-        image="/leadership.png"
         title="Leadership"
         description="Meet the visionaries behind The Louvreblanc. A team of strategists, designers, and innovators committed to delivering excellence and driving transformative results for every client."
       />
