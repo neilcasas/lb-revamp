@@ -22,13 +22,7 @@ export function ArticleCard({
   slug = "#",
 }: ArticleCardProps) {
   return (
-    <motion.article
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.5 }}
-      className="group cursor-pointer"
-    >
+    <article className="group cursor-pointer">
       <Link href={slug}>
         <div className="space-y-4">
           {/* Image */}
@@ -68,6 +62,6 @@ export function ArticleCard({
           </div>
         </div>
       </Link>
-    </motion.article>
+    </article>
   );
 }

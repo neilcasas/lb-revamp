@@ -1,8 +1,5 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "motion/react";
 
 interface PortfolioCardProps {
   title: string;
@@ -24,13 +21,7 @@ export function PortfolioCard({
   link,
 }: PortfolioCardProps) {
   const cardContent = (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.6 }}
-      className="group relative aspect-4/3 rounded-2xl overflow-hidden"
-    >
+    <div className="group relative aspect-4/3 rounded-2xl overflow-hidden">
       {/* Background Image */}
       <Image
         src={image}
@@ -77,7 +68,7 @@ export function PortfolioCard({
           </span>
         </div>
       )}
-    </motion.div>
+    </div>
   );
 
   if (link) {
