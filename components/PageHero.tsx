@@ -7,7 +7,7 @@ interface PageHeroProps {
 
 export function PageHero({ title, description }: PageHeroProps) {
   return (
-    <section className="w-full py-16 md:py-24 lg:py-32">
+    <section className="w-full pt-32 pb-12 md:pt-36 md:pb-16 lg:pt-40 lg:pb-20">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
           {/* Title - Left column */}

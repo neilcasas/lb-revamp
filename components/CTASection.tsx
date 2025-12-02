@@ -125,11 +125,12 @@ export function CTASection() {
   }, []);
 
   const leadershipRoles = [
-    "C-Suite Executive",
-    "Director / VP",
-    "Manager",
-    "Individual Contributor",
-    "Entrepreneur / Founder",
+    "Politician/Public Servant",
+    "Non-Profit Director",
+    "Philanthropist/Humanitarian",
+    "Architect/Engineer",
+    "Creative/Artist",
+    "Researcher/Academic",
     "Other",
   ];
 
@@ -143,11 +144,11 @@ export function CTASection() {
   ];
 
   const sources = [
-    "Google Search",
-    "Social Media",
     "Referral",
-    "Event / Conference",
-    "News / Press",
+    "Social Media",
+    "Advertisement",
+    "Google Search",
+    "Event",
     "Other",
   ];
 

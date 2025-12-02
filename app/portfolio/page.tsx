@@ -52,7 +52,7 @@ export default async function PortfolioPage() {
         description="Explore our carefully curated collection of successful projects. Each represents our commitment to excellence in design, development, and strategic thinking."
       />
 
-      <section className="container mx-auto px-4 py-16 md:py-24">
+      <section className="container mx-auto px-4 py-6 md:py-">
         <PortfolioFilters projects={formattedProjects} />
       </section>
     </div>
