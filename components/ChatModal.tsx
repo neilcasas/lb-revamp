@@ -15,6 +15,13 @@ interface ChatModalProps {
   onClose: () => void;
 }
 
+const MAX_MESSAGES_PER_SESSION = 10;
+
+// Generate a unique session ID
+const generateSessionId = () => {
+  return `session_${Date.now()}_${Math.random().toString(36).substring(2, 9)}`;
+};
+
 export function ChatModal({ isOpen, onClose }: ChatModalProps) {
   const [messages, setMessages] = useState<Message[]>([
     {
@@ -25,8 +32,17 @@ export function ChatModal({ isOpen, onClose }: ChatModalProps) {
   ]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [messagesRemaining, setMessagesRemaining] = useState(
+    MAX_MESSAGES_PER_SESSION
+  );
+  const [rateLimitedUntil, setRateLimitedUntil] = useState<number | null>(null);
+  const [sessionId] = useState(generateSessionId);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+
+  const isSessionLimitReached = messagesRemaining <= 0;
+  const isRateLimited =
+    rateLimitedUntil !== null && Date.now() < rateLimitedUntil;
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -59,7 +75,8 @@ export function ChatModal({ isOpen, onClose }: ChatModalProps) {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!input.trim() || isLoading) return;
+    if (!input.trim() || isLoading || isSessionLimitReached || isRateLimited)
+      return;
 
     const userMessage = input.trim();
     setInput("");
@@ -73,12 +90,32 @@ export function ChatModal({ isOpen, onClose }: ChatModalProps) {
         body: JSON.stringify({
           message: userMessage,
           history: messages,
+          sessionId,
         }),
       });
 
       const data = await response.json();
 
-      if (data.error) {
+      if (data.rateLimited) {
+        setRateLimitedUntil(Date.now() + data.waitTime * 1000);
+        setMessages((prev) => [
+          ...prev,
+          {
+            role: "assistant",
+            content: `You're sending messages too quickly. Please wait ${data.waitTime} seconds before trying again.`,
+          },
+        ]);
+      } else if (data.sessionLimitReached) {
+        setMessagesRemaining(0);
+        setMessages((prev) => [
+          ...prev,
+          {
+            role: "assistant",
+            content:
+              "You've reached the message limit for this session. Please email us at inquire@thelouvreblanc.com for further assistance.",
+          },
+        ]);
+      } else if (data.error) {
         setMessages((prev) => [
           ...prev,
           {
@@ -92,6 +129,9 @@ export function ChatModal({ isOpen, onClose }: ChatModalProps) {
           ...prev,
           { role: "assistant", content: data.reply },
         ]);
+        if (data.messagesRemaining !== undefined) {
+          setMessagesRemaining(data.messagesRemaining);
+        }
       }
     } catch {
       setMessages((prev) => [
@@ -230,15 +270,26 @@ export function ChatModal({ isOpen, onClose }: ChatModalProps) {
                 <Input
                   ref={inputRef}
                   type="text"
-                  placeholder="Ask about our services, team, or how we can help..."
+                  placeholder={
+                    isSessionLimitReached
+                      ? "Message limit reached"
+                      : isRateLimited
+                        ? "Please wait..."
+                        : "Ask about our services, team, or how we can help..."
+                  }
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
-                  disabled={isLoading}
-                  className="flex-1 bg-white/5 border border-white/10 rounded-xl h-12 px-4 focus-visible:ring-0 focus-visible:border-cyan-400 transition-colors"
+                  disabled={isLoading || isSessionLimitReached || isRateLimited}
+                  className="flex-1 bg-white/5 border border-white/10 rounded-xl h-12 px-4 focus-visible:ring-0 focus-visible:border-cyan-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 />
                 <Button
                   type="submit"
-                  disabled={isLoading || !input.trim()}
+                  disabled={
+                    isLoading ||
+                    !input.trim() ||
+                    isSessionLimitReached ||
+                    isRateLimited
+                  }
                   className="h-12 px-6 bg-cyan-400 hover:bg-cyan-300 text-black font-medium rounded-xl disabled:opacity-50 transition-colors"
                 >
                   <svg
@@ -256,9 +307,17 @@ export function ChatModal({ isOpen, onClose }: ChatModalProps) {
                   </svg>
                 </Button>
               </div>
-              <p className="text-xs text-muted-foreground text-center mt-3">
-                Powered by AI • Responses based on Louvreblanc knowledge base
-              </p>
+              <div className="flex items-center justify-between mt-3">
+                <p className="text-xs text-muted-foreground">
+                  Powered by AI • Responses based on Louvreblanc knowledge base
+                </p>
+                <p
+                  className={`text-xs ${messagesRemaining <= 3 ? "text-amber-400" : "text-muted-foreground"}`}
+                >
+                  {messagesRemaining} message
+                  {messagesRemaining !== 1 ? "s" : ""} remaining
+                </p>
+              </div>
             </form>
           </motion.div>
         </>
