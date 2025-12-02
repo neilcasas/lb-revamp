@@ -29,7 +29,7 @@ export function PortfolioCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.6 }}
-      className="group relative aspect-[4/3] rounded-2xl overflow-hidden"
+      className="group relative aspect-4/3 rounded-2xl overflow-hidden"
     >
       {/* Background Image */}
       <Image
@@ -39,13 +39,16 @@ export function PortfolioCard({
         className="object-cover transition-transform duration-500 group-hover:scale-105"
       />
 
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-black/40" />
+
       {/* Glassmorphic Card Overlay */}
       <div className="absolute bottom-0 right-0 w-full md:w-2/3 p-6 md:p-8">
-        <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6">
-          {/* Category Badge */}
-          {category && (
-            <span className="inline-block text-xs text-muted-foreground mb-3">
-              {category}
+        <div className="bg-background/80 backdrop-blur-md border border-white/10 rounded-2xl p-6">
+          {/* Client */}
+          {client && (
+            <span className="inline-block text-xs text-muted-foreground mb-2">
+              {client}
             </span>
           )}
 
@@ -66,11 +69,11 @@ export function PortfolioCard({
         </div>
       </div>
 
-      {/* Client label - top left */}
-      {client && (
+      {/* Category badge - top left */}
+      {category && (
         <div className="absolute top-4 left-4">
           <span className="text-xs text-white/70 bg-black/30 backdrop-blur-sm px-3 py-1 rounded-full">
-            {client}
+            {category}
           </span>
         </div>
       )}
